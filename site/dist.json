@@ -1,0 +1,35 @@
+{
+    "files": [
+        {
+            "name": "vite.svg",
+            "type": "file",
+            "url": "http://192.168.1.10:8000/dist/vite.svg"
+        },
+        {
+            "name": "index.html",
+            "type": "file",
+            "url": "http://192.168.1.10:8000/dist/index.html"
+        },
+        {
+            "name": "assets",
+            "type": "directory",
+            "files": [
+                {
+                    "name": "index-CozLpPjq.css",
+                    "type": "file",
+                    "url": "http://192.168.1.10:8000/dist/assets/index-CozLpPjq.css"
+                },
+                {
+                    "name": "vite-logo-CHdo91hT.svg",
+                    "type": "file",
+                    "url": "http://192.168.1.10:8000/dist/assets/vite-logo-CHdo91hT.svg"
+                },
+                {
+                    "name": "index-Dbsuw5-g.js",
+                    "type": "file",
+                    "url": "http://192.168.1.10:8000/dist/assets/index-Dbsuw5-g.js"
+                }
+            ]
+        }
+    ]
+}

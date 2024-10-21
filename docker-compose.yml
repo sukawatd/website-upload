@@ -1,0 +1,7 @@
+services:
+  http-server:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./site:/app/site  # Map the site folder from host to container

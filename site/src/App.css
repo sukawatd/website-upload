@@ -1,0 +1,146 @@
+.app-container {
+  display: flex;
+  height: 100vh;
+}
+
+.app-container.full-width .content {
+  margin-left: 0;
+  width: 100vw; /* Ensure it spans the full viewport */
+}
+
+.content.expanded {
+  margin-left: 0;
+  width: 100vw; /* Ensure the content area spans the entire viewport width */
+  padding: 0; /* Remove any padding */
+}
+
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+  border: none;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.sidebar {
+  position: fixed;
+  top: 60px;
+  left: -240px; /* Hidden by default */
+  width: 240px;
+  background-color: #444;
+  height: 100%;
+  overflow-y: auto;
+  transition: left 0.3s ease-in-out;
+  z-index: 999;
+}
+
+.sidebar.open {
+  left: 0; /* Show when open */
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar li {
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.sidebar li:hover {
+  background-color: #555;
+}
+
+.content {
+  margin-top: 60px;
+  margin-left: 240px;
+  padding: 20px;
+  flex-grow: 1;
+  height: calc(100vh - 60px); /* Ensure content fills the available height */
+  transition: margin-left 0.3s ease-in-out;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.button-group {
+  display: flex;
+  gap: 10px;
+}
+
+.primary-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+}
+
+.secondary-button {
+  background-color: #6c757d;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.secondary-button:hover {
+  background-color: #5a6268;
+}
+
+input[type="text"],
+select {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
