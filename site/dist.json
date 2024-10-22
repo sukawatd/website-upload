@@ -15,19 +15,19 @@
             "type": "directory",
             "files": [
                 {
-                    "name": "index-CozLpPjq.css",
-                    "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/index-CozLpPjq.css"
-                },
-                {
                     "name": "vite-logo-CHdo91hT.svg",
                     "type": "file",
                     "url": "http://192.168.1.10:8000/dist/assets/vite-logo-CHdo91hT.svg"
                 },
                 {
-                    "name": "index-Dbsuw5-g.js",
+                    "name": "index-BdPSgrHr.js",
                     "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/index-Dbsuw5-g.js"
+                    "url": "http://192.168.1.10:8000/dist/assets/index-BdPSgrHr.js"
+                },
+                {
+                    "name": "index-5wosLkHa.css",
+                    "type": "file",
+                    "url": "http://192.168.1.10:8000/dist/assets/index-5wosLkHa.css"
                 }
             ]
         }

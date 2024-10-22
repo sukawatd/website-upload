@@ -101,10 +101,26 @@ iframe {
   max-width: 400px;
 }
 
-.form-group {
+.form-groupx {
   display: flex;
   flex-direction: column;
   gap: 5px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-group input[type="checkbox"] {
+  margin-right: 10px; /* Add some space between checkbox and label */
+}
+
+.form-group label {
+  margin: 0;
+  flex: 1; /* This makes the label take up the remaining space */
+  text-align: left; /* Align the label text to the left */
 }
 
 .button-group {
