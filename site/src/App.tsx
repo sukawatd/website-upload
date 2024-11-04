@@ -4,7 +4,7 @@ import ViteLogo from './vite-logo.svg';
 
 interface ConfigData {
     server_name: string;
-    server_port: number;
+    server_ssl_name: string;
     ssl: boolean;
     nofix: boolean;
     dhcp_enable: boolean;
@@ -19,7 +19,7 @@ interface ConfigData {
 
 function App() {
     const [serverName, setServerName] = useState<string>('');
-    const [serverPort, setServerPort] = useState<number>(80);
+    const [serverSslName, setServerSslName] = useState<string>('');
     const [ssl, setSsl] = useState<boolean>(false);
     const [interval, setInterval] = useState<number>(10);
     const [nofix, setNofix] = useState<boolean>(false);
@@ -28,7 +28,7 @@ function App() {
     const [netmask, setNetmask] = useState<string>('');
     const [gateway, setGateway] = useState<string>('');
     const [dns, setDns] = useState<string>('');
-    const [irr, setIrr] = useState<string>('');
+    const [irr, setIrr] = useState<string>('192.168.1.2:81');
     const [upload, setUpload] = useState<boolean>(false);
 
     const [drawerOpen, setDrawerOpen] = useState<boolean>(false);
@@ -37,11 +37,22 @@ function App() {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
+    // Function to generate the hardware URI
+    const getHardwareUri = () => {
+        if (!irr) return '';
+        
+        // Check if a port is included in the `irr` string
+        const url = irr.includes(':') ? irr : `${irr}:80`;
+        console.log('URL: http://', url);
+        // Return the formatted URI
+        return `http://${url}`;
+    };
+    
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
         const config = {
             server_name: serverName,
-            server_port: serverPort,
+            server_ssl_name: serverSslName,
             ssl,
             interval,
             nofix,
@@ -79,7 +90,7 @@ function App() {
 
                 // Update the state variables with the fetched data
                 setServerName(data.server_name);
-                setServerPort(data.server_port);
+                setServerSslName(data.server_ssl_name);
                 setSsl(data.ssl);
                 setInterval(data.interval);
                 setNofix(data.nofix);
@@ -107,7 +118,30 @@ function App() {
     useEffect(() => {
         if (activeView === 'fetch') {
             setLoading(true);
-            fetch('http://192.168.1.100/config')
+            fetch('/api/config', { cache: 'no-store' })
+            // .then(response => {
+            //     if (!response.ok) {
+            //       throw new Error(`Network response was not ok, status: ${response.status}`);
+            //     }
+            //     return response.json(); // This will parse the JSON if the Content-Type is correct
+            //   })
+            //   .then(data => {
+            //     console.log('Parsed JSON:', data);
+            //   })
+            //   .catch(error => console.error('Fetch error:', error));
+            // .then(async (response) => {
+            //     const text = await response.text();
+            //     console.log('Raw response text:', text);
+            //     console.log('Text length:', text.length);
+            //     try {
+            //       const json = JSON.parse(text);
+            //       console.log('Parsed JSON:', json);
+            //     } catch (error) {
+            //       console.error('JSON parse error:', error);
+            //     }
+            //   })
+            //   .catch(error => console.error('Fetch error:', error));
+              // fetch('/api/config')
                 .then((response) => response.json())
                 .then((data) => {
                     setConfigData(data);
@@ -145,7 +179,7 @@ function App() {
                 {activeView === 'dashboard' ? (
                     // Display the iframe when "Dashboard" is active
                     <iframe
-                        src="http://192.168.1.2"
+                        src={getHardwareUri()}
                         title="Atmosphere Dashboard"
                         style={{
                             width: '100%',
@@ -159,7 +193,7 @@ function App() {
                         <h4>Network Configuration</h4>
                         <form onSubmit={handleSubmit} className="form">
                             <div className="form-group">
-                                <label htmlFor="serverName">Server Name&nbsp;</label>
+                                <label htmlFor="serverName">Server Name</label>
                                 <input
                                     type="text"
                                     id="serverName"
@@ -169,12 +203,12 @@ function App() {
                             </div>
 
                             <div className="form-group">
-                                <label htmlFor="serverPort">Server Port</label>
+                                <label htmlFor="serverPort">Server SSL Name&nbsp;</label>
                                 <input
-                                    type="number"
-                                    id="serverPort"
-                                    value={serverPort}
-                                    onChange={(e) => setServerPort(Number(e.target.value))}
+                                    type="text"
+                                    id="serverSslName"
+                                    value={serverSslName}
+                                    onChange={(e) => setServerSslName(e.target.value)}
                                 />
                             </div>
 
