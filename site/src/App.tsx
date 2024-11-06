@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import ViteLogo from './vite-logo.svg';
+import SettingLogo from './setting.svg';
+// import ViteLogo from './vite-logo.svg';
 
 interface ConfigData {
     server_name: string;
@@ -65,6 +66,32 @@ function App() {
             upload
         };
         console.log("Submitting config:", config);
+        // post to /config with the config object with POST method then redirect to /
+        fetch('/config', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(config)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to submit config data');
+                }
+                alert('Config data submitted successfully');
+            })
+            .catch(err => {
+                alert('Failed to submit config data');
+                console.error(err);
+            })
+            .finally(() => {
+                // delay for 20 seconds before redirecting to root URL
+                setTimeout(() => {
+                    console.log('Redirecting to root URL');
+                    window.location.href = '/';
+                }, 20000);
+            });
+
         // Implement form submission logic here (e.g., send data to ESP32)
     };
 
@@ -118,7 +145,7 @@ function App() {
     useEffect(() => {
         if (activeView === 'fetch') {
             setLoading(true);
-            fetch('/api/config', { cache: 'no-store' })
+            fetch('/config', { cache: 'no-store' })
             // .then(response => {
             //     if (!response.ok) {
             //       throw new Error(`Network response was not ok, status: ${response.status}`);
@@ -161,8 +188,8 @@ function App() {
                 <button className="menu-button" onClick={handleMenuToggle}>
                     ☰
                 </button>
-                <img src={ViteLogo} alt="Vite Logo" className="logo" />
-                <span className="navbar-title">ESP32 Network Configuration</span>
+                <img src={SettingLogo} alt="Setting Logo" className="logo" />
+                <span className="navbar-title">Remote ID Configuration</span>
             </nav>
 
             {/* Sidebar */}
