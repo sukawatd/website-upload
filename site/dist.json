@@ -1,35 +1,35 @@
 {
     "files": [
         {
-            "name": "index.html",
+            "name": "satellite_icon.svg",
             "type": "file",
-            "url": "http://192.168.1.10:8000/dist/index.html"
+            "url": "http://192.168.1.10:8000/dist/satellite_icon.svg"
         },
         {
             "name": "assets",
             "type": "directory",
             "files": [
                 {
-                    "name": "setting-BKc87lI5.svg",
+                    "name": "dronesign-BnjXdwkN.svg",
                     "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/setting-BKc87lI5.svg"
+                    "url": "http://192.168.1.10:8000/dist/assets/dronesign-BnjXdwkN.svg"
                 },
                 {
-                    "name": "index-5wosLkHa.css",
+                    "name": "index-DgF4tyD1.css",
                     "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/index-5wosLkHa.css"
+                    "url": "http://192.168.1.10:8000/dist/assets/index-DgF4tyD1.css"
                 },
                 {
-                    "name": "index-DWICCV9P.js",
+                    "name": "index-DHkBmpjm.js",
                     "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/index-DWICCV9P.js"
+                    "url": "http://192.168.1.10:8000/dist/assets/index-DHkBmpjm.js"
                 }
             ]
         },
         {
-            "name": "satellite_icon.svg",
+            "name": "index.html",
             "type": "file",
-            "url": "http://192.168.1.10:8000/dist/satellite_icon.svg"
+            "url": "http://192.168.1.10:8000/dist/index.html"
         }
     ]
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
-import SettingLogo from './setting.svg';
+import DroneSignLogo from './dronesign.svg';
 // import ViteLogo from './vite-logo.svg';
 
 interface ConfigData {
@@ -51,6 +51,12 @@ function App() {
     
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault();
+        // confirm the user wants to submit the form
+        if (!window.confirm('Are you sure you want to update configuration\nThis will restart the device')) {
+            console.log("User cancelled form submission");
+            return;
+        };
+
         const config = {
             server_name: serverName,
             server_ssl_name: serverSslName,
@@ -188,7 +194,7 @@ function App() {
                 <button className="menu-button" onClick={handleMenuToggle}>
                     ☰
                 </button>
-                <img src={SettingLogo} alt="Setting Logo" className="logo" />
+                <img src={DroneSignLogo} alt="Setting Logo" className="logo" />
                 <span className="navbar-title">Remote ID Configuration</span>
             </nav>
 

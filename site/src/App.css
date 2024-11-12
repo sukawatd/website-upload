@@ -25,19 +25,19 @@ iframe {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #333;
-  color: white;
+  background-color: #f8f9fa; /* Light background */
+  color: #343a40; /* Dark text */
   padding: 10px 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Lighter shadow */
   z-index: 1000;
 }
 
 .menu-button {
   background: none;
   border: none;
-  color: white;
+  color: #343a40; /* Darker color for contrast */
   font-size: 1.5rem;
   margin-right: 15px;
   cursor: pointer;
@@ -48,17 +48,13 @@ iframe {
   margin-right: 10px;
 }
 
-.navbar-title {
-  font-size: 1.2rem;
-  font-weight: bold;
-}
-
 .sidebar {
   position: fixed;
   top: 60px;
-  left: -240px; /* Hidden by default */
+  left: -240px;
   width: 240px;
-  background-color: #444;
+  background-color: #e9ecef; /* Light gray */
+  color: #343a40; /* Dark text */
   height: 100%;
   overflow-y: auto;
   transition: left 0.3s ease-in-out;
@@ -66,7 +62,7 @@ iframe {
 }
 
 .sidebar.open {
-  left: 0; /* Show when open */
+  left: 0;
 }
 
 .sidebar ul {
@@ -76,21 +72,29 @@ iframe {
 
 .sidebar li {
   padding: 15px;
-  color: white;
+  color: #343a40;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
 .sidebar li:hover {
-  background-color: #555;
+  background-color: #ced4da; /* Slightly darker gray on hover */
 }
 
+/* Navbar title */
+.navbar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #343a40; /* Ensure the title color is visible */
+}
+
+/* Content Area */
 .content {
   margin-top: 60px;
   margin-left: 240px;
   padding: 20px;
   flex-grow: 1;
-  height: calc(100vh - 60px); /* Ensure content fills the available height */
+  height: calc(100vh - 60px);
   transition: margin-left 0.3s ease-in-out;
 }
 
@@ -128,6 +132,7 @@ iframe {
   gap: 10px;
 }
 
+/* Primary button */
 .primary-button {
   background-color: #007bff;
   color: white;
@@ -141,6 +146,7 @@ iframe {
   background-color: #0056b3;
 }
 
+/* Secondary button */
 .secondary-button {
   background-color: #6c757d;
   color: white;
@@ -154,6 +160,7 @@ iframe {
   background-color: #5a6268;
 }
 
+/* Input fields */
 input[type="text"],
 select {
   padding: 10px;
