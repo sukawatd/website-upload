@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './App.css';
 import DroneSignLogo from './dronesign.svg';
-// import ViteLogo from './vite-logo.svg';
+import DiagnosticTools from './DiagnosticTools';
 
 interface ConfigData {
     server_name: string;
@@ -204,6 +204,7 @@ function App() {
                     <li onClick={() => handleNavigation('dashboard')}>Dashboard</li>
                     <li onClick={() => handleNavigation('settings')}>Settings</li>
                     <li onClick={() => handleNavigation('fetch')}>Fetch</li>
+                    <li onClick={() => handleNavigation('diagnostics')}>Diagnostics</li>
                 </ul>
             </aside>
 
@@ -369,7 +370,10 @@ function App() {
                             <pre>{JSON.stringify(configData, null, 2)}</pre>
                         )}
                     </>
-                ) : (
+                ) : activeView === 'diagnostics' ? (
+                    // Display the diagnostics view when "Diagnostics" is active
+                    <DiagnosticTools />
+                ): (
                     <p>Please select a valid view.</p>
                 )}
             </main>
