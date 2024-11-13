@@ -22,16 +22,18 @@ const DiagnosticTools: React.FC = () => {
       // Count number of successful ping responses
       const count = data.results.length;
 
-      // Calculate average ping time and format it to 0 decimal places
-      const avgPingTime = (totalPingTime / count).toFixed(0);
+      // Calculate average ping time and format it to 0 decimal places if  count = 0 to avoid NaN error 
+      const avgPingTime = count > 0 ? (totalPingTime / count).toFixed(0) : 0;
 
       // Calculate packet loss percentage
       const packetLoss = (((3 - count) / 3) * 100).toFixed(0);
 
       // Format the result string with HTML line breaks for display
+      //  average time ${avgPingTime} ms if count = 0  show  '-' instead of 0
+      const avgDisplay = count > 0 ? `${avgPingTime}` : '-';
       const resultText = `
       Ping to ${ipAddress}
-      3 packets transmitted, ${count} received, ${packetLoss}% packet loss, average time ${avgPingTime} ms
+      3 packets transmitted, ${count} received, ${packetLoss}% packet loss, average time ${avgDisplay} ms
     `;
       setPingResult(resultText);
     } catch (error) {

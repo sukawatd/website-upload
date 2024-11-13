@@ -1,9 +1,9 @@
 {
     "files": [
         {
-            "name": "satellite_icon.svg",
+            "name": "index.html",
             "type": "file",
-            "url": "http://192.168.1.10:8000/dist/satellite_icon.svg"
+            "url": "http://192.168.1.10:8000/dist/index.html"
         },
         {
             "name": "assets",
@@ -15,21 +15,21 @@
                     "url": "http://192.168.1.10:8000/dist/assets/dronesign-BnjXdwkN.svg"
                 },
                 {
+                    "name": "index-CKvBCXCS.js",
+                    "type": "file",
+                    "url": "http://192.168.1.10:8000/dist/assets/index-CKvBCXCS.js"
+                },
+                {
                     "name": "index-DgF4tyD1.css",
                     "type": "file",
                     "url": "http://192.168.1.10:8000/dist/assets/index-DgF4tyD1.css"
-                },
-                {
-                    "name": "index-DSfDCnH4.js",
-                    "type": "file",
-                    "url": "http://192.168.1.10:8000/dist/assets/index-DSfDCnH4.js"
                 }
             ]
         },
         {
-            "name": "index.html",
+            "name": "satellite_icon.svg",
             "type": "file",
-            "url": "http://192.168.1.10:8000/dist/index.html"
+            "url": "http://192.168.1.10:8000/dist/satellite_icon.svg"
         }
     ]
 }
